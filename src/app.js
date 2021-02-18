@@ -1,4 +1,5 @@
 import express from 'express';
+import {newsRouter} from "./news/news.router.js";
 
 export class App {
   port = process.env.PORT || 3000;
@@ -6,7 +7,7 @@ export class App {
   init() {
     this.server = express();
 
-    this.server.get('/', (req, res) => res.send('Hello, world!'))
+    this.server.use('/news', newsRouter);
 
     return this;
   }

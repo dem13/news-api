@@ -26,7 +26,7 @@ export class NewsService {
 
       const localNews = {
         id: news.id,
-        content: news.content,
+        content: news.content === null ? "" : news.content,
         storedAt: new Date().toJSON(),
       };
 

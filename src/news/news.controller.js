@@ -1,4 +1,5 @@
 import {NewsService} from "./news.service.js";
+import {HttpException} from "../exceptions/http.exception.js";
 
 export class NewsController {
   constructor() {
@@ -24,9 +25,7 @@ export class NewsController {
         data: news
       })
     } catch (err) {
-      res.status(400).send({
-        message: err.message
-      })
+      throw new HttpException(err.message, 400);
     }
   }
 }

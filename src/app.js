@@ -18,7 +18,7 @@ export class App {
 
     this.server = express();
 
-    this.server.use('/news', newsRouter);
+    this.server.use('/news', newsRouter());
 
     return this;
   }

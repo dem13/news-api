@@ -1,13 +1,11 @@
 import express from "express";
+import {NewsController} from "./news.controller.js";
 
-const newsRouter = express.Router();
+export const newsRouter = () => {
+  const router = express.Router();
+  const controller = new NewsController();
 
-newsRouter.get('/', (req, res) => {
-  res.send({
-    data: [
-      {content: 'Hello, world!'}
-    ]
-  })
-});
+  router.get('/', controller.get.bind(controller));
 
-export {newsRouter}
+  return router;
+}
